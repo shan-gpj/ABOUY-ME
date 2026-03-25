@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABOUT ME</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+
+  /* Base Styles */
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Montserrat', sans-serif; }
+  body { background:#1a1a33; color:#f0f0f0; line-height:1.6; scroll-behavior:smooth; }
+  a { text-decoration:none; color:inherit; }
+
+  /* Header */
+  header { display:flex; justify-content:space-between; align-items:center; padding:20px 40px; background:#1a1a33; position:fixed; width:100%; top:0; z-index:100; box-shadow:0 4px 10px rgba(0,0,0,0.5); }
+  header h1 { font-size:1.8rem; color:#00ff7f; letter-spacing:1px; }
+  .menu-btn { font-size:2rem; cursor:pointer; position:relative; color:#fff; }
+  .dropdown { display:none; position:absolute; right:40px; top:60px; background:#222244; border-radius:8px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.5); }
+  .dropdown a { display:block; padding:12px 25px; transition:0.2s; font-weight:600; color:#00ff7f; }
+  .dropdown a:hover { background:#00ff7f; color:#0d0d1a; }
+
+  /* Main container */
+  main { max-width:1000px; margin:140px auto 40px; padding:0 20px; }
+
+  section { margin-bottom:60px; opacity:0; transform:translateY(50px); transition:all 0.8s ease; }
+  section.visible { opacity:1; transform:translateY(0); }
+
+  h2 { color:#00ff7f; margin-bottom:20px; border-bottom:2px solid #00ff7f; display:inline-block; padding-bottom:5px; font-size:1.6rem; letter-spacing:1px; }
+
+  /* About Me */
+  .info p, .focus p { margin-bottom:12px; font-size:1rem; }
+  .focus p { font-weight:600; }
+
+  /* Skills */
+  .skills .skill { margin-bottom:25px; }
+  .skill-name { margin-bottom:8px; font-weight:600; font-size:1.05rem; color:#fff; }
+  .skill-bar { width:100%; background:#222244; height:25px; border-radius:15px; overflow:hidden; }
+  .skill-fill {
+    height:100%;
+    text-align:right;
+    padding-right:10px;
+    line-height:25px;
+    font-size:0.85rem;
+    color:#0d0d1a;
+    width:0%; /* start from 0% */
+    border-radius:15px 0 0 15px;
+    background: linear-gradient(90deg,#00ff7f,#00cc66);
+    font-weight:600;
+  }
+  .skill:hover .skill-fill { filter:brightness(1.3); }
+.main-channel {
+  background:#1a1a33;
+  text-align:center;
+  padding:40px 20px;
+  border-radius:15px;
+  margin-top:40px;
+  box-shadow:0 5px 15px rgba(0,255,127,0.3);
+}
+.main-channel h2 { color:#00ff7f; margin-bottom:15px; font-size:1.6rem; }
+.main-channel p { color:#f0f0f0; margin-bottom:20px; font-size:1rem; }
+.channel-btn {
+  display:inline-block;
+  background:#00ff7f;
+  color:#0d0d1a;
+  font-weight:600;
+  padding:12px 25px;
+  border-radius:10px;
+  transition:0.3s;
+}
+.channel-btn:hover { background:#00cc66; color:#fff; transform:scale(1.05); }
+  /* Friends / Pro Developers */
+  .portfolio { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:25px; }
+  .project { background:#222244; padding:20px; border-radius:15px; transition:0.4s; text-align:center; cursor:pointer; position:relative; overflow:hidden; }
+  .project:hover { transform:translateY(-5px) scale(1.05); box-shadow:0 5px 25px rgba(0,255,127,0.5); }
+  .project-description { position:absolute; bottom:0; left:0; width:100%; background:rgba(0,0,0,0.7); color:#00ff7f; padding:12px; font-size:0.95rem; opacity:0; transition:opacity 0.3s ease; border-radius:0 0 15px 15px; }
+  .project:hover .project-description { opacity:1; }
+
+  /* Footer */
+  footer { text-align:center; margin-top:40px; font-size:0.9rem; color:#aaa; }
+.my-alp {
+  background:#1a1a33;
+  padding:40px 20px;
+  border-radius:15px;
+  margin-top:40px;
+  box-shadow:0 5px 15px rgba(0,255,127,0.3);
+  text-align:center;
+}
+.my-alp h2 { color:#00ff7f; margin-bottom:20px; font-size:1.6rem; }
+
+.alp-container {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap:25px;
+  justify-items:center;
+}
+
+.alp-card {
+  background:#222244;
+  border-radius:15px;
+  overflow:hidden;
+  width:100%;
+  transition:0.4s;
+  cursor:pointer;
+}
+.alp-card:hover {
+  transform:translateY(-5px) scale(1.05);
+  box-shadow:0 5px 25px rgba(0,255,127,0.5);
+}
+
+.alp-img {
+  width:100%;
+  display:block;
+  border-bottom:2px solid #00ff7f;
+}
+
+.alp-description {
+  padding:10px;
+  color:#00ff7f;
+  font-size:0.95rem;
+  font-weight:600;
+  background:#1a1a33;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ABOUT ME - Shan</h1>
+  <div class="menu-btn">⋮</div>
+  <div class="dropdown">
+    <a href="https://t.me/Sigmashan" target="_blank">Telegram account</a>
+  </div>
+</header>
+
+<main>
+  <!-- About Me -->
+  <section class="about-me">
+    <h2>About Me</h2>
+    <div class="info">
+      <p><strong>Name:</strong> Shan</p>
+      <p><strong>Country:</strong> Philippines</p>
+      <p><strong>Status:</strong> Noob (sa paggawa ng cheat)</p>
+      <p><strong>Hobby:</strong> Coding</p>
+      <p><strong>Goal:</strong> I want to become pro</p>
+    </div>
+    <div class="focus">
+      <p><strong>Focus:</strong> Web Programmer / Web Developer</p>
+      <p><strong>Career Aspiration:</strong> Web Programmer & Game Developer</p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="skills">
+    <h2>Skills</h2>
+    <div class="skill">
+      <div class="skill-name">Lua+ (70%)</div>
+      <div class="skill-bar"><div class="skill-fill" data-width="70%">0%</div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">HTML (90%)</div>
+      <div class="skill-bar"><div class="skill-fill" data-width="90%">0%</div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">JavaScript (65%)</div>
+      <div class="skill-bar"><div class="skill-fill" data-width="65%">0%</div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">CSS (95%)</div>
+      <div class="skill-bar"><div class="skill-fill" data-width="95%">0%</div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">Python (86%)</div>
+      <div class="skill-bar"><div class="skill-fill" data-width="86%">0%</div></div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">C++ (20%)</div>
+      <div class="skill-bar"><div class="skill-fill" data-width="20%">0%</div></div>
+    </div>
+  </section>
+
+  <!-- Friends / Pro Developers -->
+  <section class="portfolio-section">
+    <h2>My Friends - kupal</h2>
+    <div class="portfolio">
+      <div class="project">
+        <a href="https://t.me/FAWZIKNOX" target="_blank">@FAWZIKNOX</a>
+        <div class="project-description">pro sa mods.</div>
+      </div>
+      <div class="project">
+        <a href="https://t.me/PrimeYush" target="_blank">@PrimeYush</a>
+        <div class="project-description">palo to kasmaa sa amox eh.</div>
+      </div>
+      <div class="project">
+        <a href="https://t.me/kuzeofficial" target="_blank">@kuzeofficial</a>
+        <div class="project-description">pro .</div>
+      </div>
+      <div class="project">
+        <a href="https://t.me/Kush_Modz" target="_blank">@Kush_Modz</a>
+        <div class="project-description">kupal to joke lang may pro din to.</div>
+      </div>
+    </div>
+  </section>
+</main>
+<!-- Main Channel Section -->
+<section class="main-channel">
+  <h2>My Main Channel</h2>
+  <p>click to join my channel for more cheat.</p>
+  <a href="https://t.me/sigmachannelv3" target="_blank" class="channel-btn">THIRD CHANNEL</a>
+</section>
+<section class="my-alp">
+  <h2>My Own  Projects</h2>
+  <div class="alp-container">
+    <div class="alp-card">
+      <a href="https://t.me/Sigmashan" target="_blank">
+        <img src="image1.png" alt="ALP 1" class="alp-img">
+      </a>
+      <div class="alp-description">My first project.</div>
+    </div>
+    <div class="alp-card">
+      <a href="https://t.me/Sigmashan" target="_blank">
+        <img src="image2.png" alt="ALP 2" class="alp-img">
+      </a>
+      <div class="alp-description">second - my second alp.</div>
+    </div>
+  </div>
+</section>
+<footer>
+  &copy; 2026 Shan – programmer
+</footer>
+
+<script>
+  // Dropdown toggle
+  const menuBtn = document.querySelector('.menu-btn');
+  const dropdown = document.querySelector('.dropdown');
+  menuBtn.addEventListener('click', () => {
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Animate sections on scroll
+  const sections = document.querySelectorAll('section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold:0.2 });
+  sections.forEach(section => observer.observe(section));
+
+  // Animate skill bars correctly
+  const skillFills = document.querySelectorAll('.skill-fill');
+
+function animateSkillBar(fill) {
+  const target = parseInt(fill.getAttribute('data-width'));
+  let current = 0;
+
+  function step() {
+    if(current < target){
+      current++;
+      fill.style.width = current + '%';
+      fill.textContent = current + '%';
+      requestAnimationFrame(step);
+    } else {
+      fill.style.width = target + '%';
+      fill.textContent = target + '%';
+    }
+  }
+  requestAnimationFrame(step);
+}
+
+// Observe skills
+const skillObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      animateSkillBar(entry.target);
+      skillObserver.unobserve(entry.target); // stop observing after animating
+    }
+  });
+}, { threshold: 0.5 });
+
+skillFills.forEach(fill => skillObserver.observe(fill));
+offscreenBuffering
+</script>
+</body>
+</html>
